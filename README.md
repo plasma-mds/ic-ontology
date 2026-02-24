@@ -2,7 +2,7 @@
 
 ## Description
 This is a repository for the ion chromatography ontology development. 
-The ion chromatography (`plasma-ontology.ttl`), also called IC-O, is a domain-specific ontology for the detailed semantic description of ion chromatography measurements.
+The ion chromatography (`IC_ontology.ttl`), also called IC-O, is a domain-specific ontology for the detailed semantic description of ion chromatography measurements.
 It reuses several classes and properties from other ontologies and vocabularies such as [Plasma-O](https://github.com/plasma-mds/plasma-ontology), [CHMO](https://github.com/rsc-ontology/rsc-cmo), and [QUDT](http://www.qudt.org/doc/2026/01/DOC_SCHEMA-QUDT.html).
 The repository also contains competency questions which are used to demonstrate possible use-cases for the ontology. 
 

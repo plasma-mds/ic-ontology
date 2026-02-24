@@ -1,4 +1,4 @@
-# Ion chromatography-Ontology IC-O
+# Ion Chromatography-Ontology IC-O
 
 ## Description
 This is a repository for the ion chromatography ontology development. 

@@ -1,0 +1,1651 @@
+@prefix : <https://plasma-mds.org/ontology/IC_Ontology#> .
+@prefix ic: <https://plasma-mds.org/ontology/IC_Ontology/> .
+@prefix AFO: <http://purl.allotrope.org/ontologies/result#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix QUDT: <http://qudt.org/schema/qudt/> .
+@prefix chmo: <http://purl.obolibrary.org/obo/> .
+@prefix doap: <http://usefulinc.com/ns/doap#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix plsmo: <https://plasma-mds.org/ontology/plasma-o/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@base <https://plasma-mds.org/ontology/IC_Ontology#> .
+
+<https://plasma-mds.org/ontology/IC_Ontology> rdf:type owl:Ontology ;
+                                               owl:versionIRI <https://plasma-mds.org/ontology/IC_Ontology/0.5.0> ;
+                                               dcterms:citation "" ;
+                                               dcterms:created "2024-08-13" ;
+                                               dcterms:creator "Ihda Chaeronny Siffa" ,
+                                                               "Robert Wagner" ,
+                                                               "https://orcid.org/0000-0002-2762-293X" ,
+                                                               "https://orcid.org/0000-0002-4232-4543" ;
+                                               dcterms:description "The ion chromatography ontology (IC-O) supports the standardized description of the laboratory and configuration context in ion chromatography. It contains the important terminology about necessary configurations for each device component and their necessary units." ;
+                                               dcterms:license "https://creativecommons.org/licenses/by/4.0/" ;
+                                               dcterms:title "Ion chromatography ontology (IC-O)" ;
+                                               vann:preferredNamespacePrefix "ic" ;
+                                               doap:bug-database "" ;
+                                               owl:versionInfo "0.5.0" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.obolibrary.org/obo/IAO_0000115
+chmo:IAO_0000115 rdf:type owl:AnnotationProperty ;
+                 rdfs:label "oboDefinition"@en .
+
+
+###  http://purl.org/dc/terms/citation
+dcterms:citation rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/contributer
+dcterms:contributer rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/created
+dcterms:created rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/creator
+dcterms:creator rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/description
+dcterms:description rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/license
+dcterms:license rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/references
+dcterms:references rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/title
+dcterms:title rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespacePrefix
+vann:preferredNamespacePrefix rdf:type owl:AnnotationProperty .
+
+
+###  http://usefulinc.com/ns/doap#bug-database
+doap:bug-database rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://qudt.org/schema/qudt/hasQuantityKind
+QUDT:hasQuantityKind rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf owl:topObjectProperty ;
+                     rdfs:domain QUDT:Quantity ;
+                     rdfs:range QUDT:QuantityKind ;
+                     rdfs:label "hasQuantityKind"@en .
+
+
+###  http://qudt.org/schema/qudt/hasUnit
+QUDT:hasUnit rdf:type owl:ObjectProperty ;
+             owl:inverseOf plsmo:PLSMO_R0088 ;
+             rdfs:domain QUDT:Quantity ;
+             rdfs:range <https://qudt.org/schema/qudt/Unit> ;
+             chmo:IAO_0000115 """This property relates a system of units with a unit of measure that is either:
+    a) defined by the system,
+    b) accepted for use by the system and is convertible to a unit of equivalent dimension that is defined by the system,
+    c) a reference to the unit of measure of a quantity (variable or constant) of interest.
+
+    Systems of units may distinguish between base and derived units. Base units are the units which measure the base quantities for the corresponding system of quantities. The base units are used to define units for all other quantities as products of powers of the base units. Such units are called derived units for the system.
+This property relates a system of units with a unit of measure that is either a) defined by the system, or b) accepted for use by the system and is convertible to a unit of equivalent dimension that is defined by the system. Systems of units may distinguish between base and derived units. Base units are the units which measure the base quantities for the corresponding system of quantities. The base units are used to define units for all other quantities as products of powers of the base units. Such units are called derived units for the system.
+
+See: https://qudt.org/schema/qudt/hasUnit"""@en ;
+             rdfs:label "hasUnit"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0007
+plsmo:PLSMO_R0007 rdf:type owl:ObjectProperty ;
+                  owl:inverseOf plsmo:PLSMO_R0042 ;
+                  rdfs:domain plsmo:PLSMO_C0002 ;
+                  rdfs:range chmo:CHMO_0001209 ,
+                             chmo:CHMO_0001210 ;
+                  rdfs:label "configurationOf"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0010
+plsmo:PLSMO_R0010 rdf:type owl:ObjectProperty ;
+                  rdfs:domain plsmo:PLSMO_C0026 ;
+                  rdfs:range plsmo:PLSMO_C0034 ;
+                  rdfs:label "consistsOf"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0042
+plsmo:PLSMO_R0042 rdf:type owl:ObjectProperty ;
+                  rdfs:domain chmo:CHMO_0001209 ,
+                              chmo:CHMO_0001210 ,
+                              plsmo:PLSMO_C0003 ;
+                  rdfs:range plsmo:PLSMO_C0002 ;
+                  chmo:IAO_0000115 "[Device] has [Configuration]"@en ;
+                  rdfs:label "hasConfiguration"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0088
+plsmo:PLSMO_R0088 rdf:type owl:ObjectProperty ;
+                  rdfs:domain <https://qudt.org/schema/qudt/Unit> ;
+                  rdfs:range QUDT:QuantityKind ;
+                  rdfs:label "unitOf"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0101
+plsmo:PLSMO_R0101 rdf:type owl:ObjectProperty ;
+                  rdfs:domain plsmo:PLSMO_C0030 ;
+                  rdfs:range plsmo:PLSMO_C0003 ;
+                  rdfs:label "usesDevice"@en .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_A0001
+ic:IC_A0001 rdf:type owl:DatatypeProperty ;
+            rdfs:subPropertyOf owl:topDataProperty ;
+            rdfs:domain ic:IC_C0001 ;
+            rdfs:range xsd:string ;
+            rdfs:label "hasInstrumentMethodName"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_A0002
+ic:IC_A0002 rdf:type owl:DatatypeProperty ;
+            rdfs:label "hasGuardColumnBrandName"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_A0003
+ic:IC_A0003 rdf:type owl:DatatypeProperty ;
+            rdfs:label "hasSeparationColumnBrandName"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_A0001
+plsmo:PLSMO_A0001 rdf:type owl:DatatypeProperty ;
+                  rdfs:domain QUDT:QuantityKind ;
+                  rdfs:range xsd:float ;
+                  rdfs:label "hasValue"@en .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://purl.allotrope.org/ontologies/result#AFR_0000413
+AFO:AFR_0000413 rdf:type owl:Class ;
+                rdfs:subClassOf ic:IC_C0025 ;
+                chmo:IAO_0000115 "A peak is a data region containing a single local extremum in the dependent variable of the distribution function. [Allotrope]"@en ;
+                rdfs:label "Peak"@en .
+
+
+###  http://purl.allotrope.org/ontologies/result#AFR_0000948
+AFO:AFR_0000948 rdf:type owl:Class ;
+                rdfs:subClassOf ic:IC_C0025 ;
+                chmo:IAO_0000115 "A peak facet that denotes the ordinate value of the peak extremum offset by the baseline ascribed to the peak. [Allotrope]"@en ;
+                dcterms:references AFO:AFR_0000413 ,
+                                   AFO:AFR_0001219 ;
+                rdfs:label "Peak Height"@en .
+
+
+###  http://purl.allotrope.org/ontologies/result#AFR_0001073
+AFO:AFR_0001073 rdf:type owl:Class ;
+                rdfs:subClassOf ic:IC_C0025 ;
+                chmo:IAO_0000115 "A peak facet that quantitates the area enclosed by a peak and the selected baseline. [Allotrope]"@en ;
+                dcterms:references AFO:AFR_0000413 ,
+                                   AFO:AFR_0001219 ;
+                rdfs:label "Peak Area"@en .
+
+
+###  http://purl.allotrope.org/ontologies/result#AFR_0001075
+AFO:AFR_0001075 rdf:type owl:Class ;
+                rdfs:subClassOf ic:IC_C0025 ;
+                chmo:IAO_0000115 "A peak facet denoting its width at a specified peak height or variance. [Allotrope]"@en ;
+                dcterms:references AFO:AFR_0000413 ,
+                                   AFO:AFR_0000948 ;
+                rdfs:label "Peak Width"@en .
+
+
+###  http://purl.allotrope.org/ontologies/result#AFR_0001219
+AFO:AFR_0001219 rdf:type owl:Class ;
+                rdfs:subClassOf ic:IC_C0025 ;
+                chmo:IAO_0000115 "An information content entity that describes the background (offset) component of a signal not due to the analyte (peak) of interest. [Allotrope]"@en ;
+                rdfs:label "Baseline"@en .
+
+
+###  http://purl.allotrope.org/ontologies/result#AFR_0001267
+AFO:AFR_0001267 rdf:type owl:Class ;
+                rdfs:subClassOf QUDT:Quantity ;
+                chmo:IAO_0000115 "An autosampler parameter specification that specifies the volume of sample the autosampler is to inject into the mobile phase for separation. [Allotrope]"@en ;
+                dcterms:references <http://purl.allotrope.org/ontologies/role#AFRL_0000011> ;
+                rdfs:label "Autosampler Injection Volume Setting"@en .
+
+
+###  http://purl.allotrope.org/ontologies/result#AFR_0001538
+AFO:AFR_0001538 rdf:type owl:Class ;
+                rdfs:subClassOf QUDT:Quantity ;
+                chmo:IAO_0000115 "An autosampler temperature setting is a setting that sets the temperature within the autosampler. [Allotrope]"@en ;
+                rdfs:label "Autosampler Temperature Setting"@en .
+
+
+###  http://purl.allotrope.org/ontologies/result#AFR_0002029
+AFO:AFR_0002029 rdf:type owl:Class ;
+                rdfs:subClassOf QUDT:Quantity ;
+                chmo:IAO_0000115 "A chromatography column length (datum) is a length datum that quantifies the length of a chromatography column. [Allotrope]"@en ;
+                rdfs:label "Chromatography Column Length"@en .
+
+
+###  http://purl.allotrope.org/ontologies/result#AFR_0002561
+AFO:AFR_0002561 rdf:type owl:Class ;
+                rdfs:subClassOf QUDT:Quantity ;
+                chmo:IAO_0000115 "A chromatography column particle size is a particle size datum that quantifies the dimensions of packing particles in a chromatography column. [Allotrope]"@en ;
+                rdfs:label "Chromatography Column Particle size"@en .
+
+
+###  http://purl.allotrope.org/ontologies/result#AFR_0002773
+AFO:AFR_0002773 rdf:type owl:Class ;
+                rdfs:subClassOf QUDT:Quantity ;
+                chmo:IAO_0000115 "A column compartment temperature setting is a temperature setting that specifies the temperature of some column compartment. [Allotrope]"@en ;
+                rdfs:label "Column Compartment Temperature Setting"@en .
+
+
+###  http://purl.allotrope.org/ontologies/role#AFRL_0000011
+<http://purl.allotrope.org/ontologies/role#AFRL_0000011> rdf:type owl:Class ;
+                                                         rdfs:subClassOf ic:IC_C0025 ;
+                                                         chmo:IAO_0000115 "Mobile phase is the chromatographic phase role of a fluid material entity in a chromatography process to act as the fluid that percolates through or along the stationary bed in chromatography. [Allotrope, CHMO]"@en ;
+                                                         rdfs:label "Mobile Phase"@en .
+
+
+###  http://purl.allotrope.org/ontologies/role#AFRL_0000032
+<http://purl.allotrope.org/ontologies/role#AFRL_0000032> rdf:type owl:Class ;
+                                                         rdfs:subClassOf ic:IC_C0025 ;
+                                                         chmo:IAO_0000115 "A stationary phase is the chromatographic phase role of a solid, gel or liquid material that is the stationary component in chromatography. [Allotrope]"@en ;
+                                                         rdfs:label "Stationary Phase"@en .
+
+
+###  http://purl.allotrope.org/ontologies/role#AFRL_0000220
+<http://purl.allotrope.org/ontologies/role#AFRL_0000220> rdf:type owl:Class ;
+                                                         rdfs:subClassOf <http://purl.allotrope.org/ontologies/role#AFRL_0000011> ;
+                                                         chmo:IAO_0000115 "Eluent is a mobile phase entering a column to perform a separation of material. [Allotrope]"@en ;
+                                                         rdfs:label "Eluent"@en .
+
+
+###  http://purl.obolibrary.org/obo/CHMO_0001000
+chmo:CHMO_0001000 rdf:type owl:Class ;
+                  rdfs:subClassOf ic:IC_C0018 ;
+                  chmo:IAO_0000115 "A separation method where the components are distributed between two phases, one of which is stationary, while the other moves in a definite direction."@en ;
+                  rdfs:label "Chromatography"@en .
+
+
+###  http://purl.obolibrary.org/obo/CHMO_0001001
+chmo:CHMO_0001001 rdf:type owl:Class ;
+                  rdfs:subClassOf chmo:CHMO_0001000 ;
+                  chmo:IAO_0000115 "A chromatography method where the stationary bed is within a tube (of standard length 25 cm). The particles of the solid stationary phase or support coated with a liquid stationary phase may fill the whole inside volume of the tube (packed column) or be concentrated on or along the inside tube wall leaving an open, unrestricted path for the mobile phase in the middle part of the tube (open-tubular column)."@en ;
+                  rdfs:label "Column Chromatography"@en .
+
+
+###  http://purl.obolibrary.org/obo/CHMO_0001012
+chmo:CHMO_0001012 rdf:type owl:Class ;
+                  rdfs:subClassOf ic:IC_C0019 ;
+                  chmo:IAO_0000115 "Column chromatography where the separation is caused by differences in charge, the mobile phase is aqueous and the analyte is ionic."@en ;
+                  dcterms:references <http://purl.allotrope.org/ontologies/role#AFRL_0000011> ;
+                  rdfs:label "Ion Exclusion Chromatography"@en .
+
+
+###  http://purl.obolibrary.org/obo/CHMO_0001014
+chmo:CHMO_0001014 rdf:type owl:Class ;
+                  rdfs:subClassOf ic:IC_C0019 ;
+                  chmo:IAO_0000115 "Column chromatography where the separation is caused by differences in ion-exchange affinity."@en ;
+                  rdfs:label "Ion-exchange Chromatography"@en .
+
+
+###  http://purl.obolibrary.org/obo/CHMO_0001128
+chmo:CHMO_0001128 rdf:type owl:Class ;
+                  rdfs:subClassOf ic:IC_C0019 ;
+                  chmo:IAO_0000115 "Chromatography in which separation is based mainly on differences between the adsorption affinities of the sample components for the surface of an active solid."@en ;
+                  rdfs:label "Adsorption Chromatography"@en .
+
+
+###  http://purl.obolibrary.org/obo/CHMO_0001209
+chmo:CHMO_0001209 rdf:type owl:Class ;
+                  owl:equivalentClass [ owl:intersectionOf ( chmo:CHMO_0001014
+                                                             [ rdf:type owl:Restriction ;
+                                                               owl:onProperty plsmo:PLSMO_R0042 ;
+                                                               owl:someValuesFrom ic:IC_C0013
+                                                             ]
+                                                             [ rdf:type owl:Restriction ;
+                                                               owl:onProperty plsmo:PLSMO_R0042 ;
+                                                               owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                               owl:onClass ic:IC_C0001
+                                                             ]
+                                                           ) ;
+                                        rdf:type owl:Class
+                                      ] ;
+                  rdfs:subClassOf chmo:CHMO_0001014 ;
+                  chmo:IAO_0000115 "Column chromatography where anions are retained by positively charged functional groups in the stationary phase."@en ;
+                  rdfs:label "Anion-exchange Chromatography"@en .
+
+
+###  http://purl.obolibrary.org/obo/CHMO_0001210
+chmo:CHMO_0001210 rdf:type owl:Class ;
+                  owl:equivalentClass [ owl:intersectionOf ( chmo:CHMO_0001014
+                                                             [ rdf:type owl:Restriction ;
+                                                               owl:onProperty plsmo:PLSMO_R0042 ;
+                                                               owl:someValuesFrom ic:IC_C0013
+                                                             ]
+                                                             [ rdf:type owl:Restriction ;
+                                                               owl:onProperty plsmo:PLSMO_R0042 ;
+                                                               owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                               owl:onClass ic:IC_C0001
+                                                             ]
+                                                           ) ;
+                                        rdf:type owl:Class
+                                      ] ;
+                  rdfs:subClassOf chmo:CHMO_0001014 ;
+                  chmo:IAO_0000115 "Column chromatography where cations are retained by negatively charged functional groups in the stationary phase."@en ;
+                  rdfs:label "Cation-exchange Chromatography"@en .
+
+
+###  http://purl.obolibrary.org/obo/CHMO_0002280
+chmo:CHMO_0002280 rdf:type owl:Class ;
+                  rdfs:subClassOf chmo:CHMO_0001014 ;
+                  chmo:IAO_0000115 "A type of column chromatography in which ions in solution can be 'paired' or neutralised and separated as an ion pair on a reversed-phase column. Ion-pairing agents are usually ionic compounds that contain a hydrocarbon chain."@en ;
+                  rdfs:label "Ion Pair Chromatography"@en .
+
+
+###  http://purl.obolibrary.org/obo/CHMO_0002403
+chmo:CHMO_0002403 rdf:type owl:Class ;
+                  rdfs:subClassOf ic:IC_C0019 ;
+                  chmo:IAO_0000115 "Chromatography in which separation is based mainly on differences between the solubility of the sample components in the stationary phase (gas chromatography), or on differences between the solubilities of the components in the mobile and stationary phases (liquid chromatography)."@en ;
+                  dcterms:references <http://purl.allotrope.org/ontologies/role#AFRL_0000011> ,
+                                     <http://purl.allotrope.org/ontologies/role#AFRL_0000032> ;
+                  rdfs:label "Partition Chromatography"@en .
+
+
+###  http://qudt.org/schema/qudt/Quantity
+QUDT:Quantity rdf:type owl:Class ;
+              rdfs:subClassOf plsmo:PLSMO_C0034 ;
+              chmo:IAO_0000115 """A quantity is the measurement of an observable property of a particular object, event, or physical system. A quantity is always associated with the context of measurement (i.e. the thing measured, the measured value, the accuracy of measurement, etc.) whereas the underlying quantity kind is independent of any particular measurement. Thus, length is a quantity kind while the height of a rocket is a specific quantity of length; its magnitude that may be expressed in meters, feet, inches, etc. Examples of physical quantities include physical constants, such as the speed of light in a vacuum, Planck's constant, the electric permittivity of free space, and the fine structure constant.
+
+In other words, quantities are quantifiable aspects of the world, such as the duration of a movie, the distance between two points, velocity of a car, the pressure of the atmosphere, and a person's weight; and units are used to describe their numerical measure.
+
+Many quantity kinds are related to each other by various physical laws, and as a result, the associated units of some quantity kinds can be expressed as products (or ratios) of powers of other quantity kinds (e.g., momentum is mass times velocity and velocity is defined as distance divided by time). In this way, some quantities can be calculated from other measured quantities using their associations to the quantity kinds in these expressions. These quantity kind relationships are also discussed in dimensional analysis. Those that cannot be so expressed can be regarded as \"fundamental\" in this sense.
+
+A quantity is distinguished from a \"quantity kind\" in that the former carries a value and the latter is a type specifier.
+
+See: https://qudt.org/schema/qudt/Quantity"""@en ;
+              rdfs:label "Quantity"@en .
+
+
+###  http://qudt.org/schema/qudt/QuantityKind
+QUDT:QuantityKind rdf:type owl:Class ;
+                  rdfs:subClassOf plsmo:PLSMO_C0034 ;
+                  chmo:IAO_0000115 "A Quantity Kind is any observable property that can be measured and quantified numerically. Familiar examples include physical properties such as length, mass, time, force, energy, power, electric charge, etc. Less familiar examples include currency, interest rate, price to earning ratio, and information capacity."@en ;
+                  rdfs:label "Quantity Kind"@en .
+
+
+###  http://qudt.org/schema/qudt/QuantityValue
+QUDT:QuantityValue rdf:type owl:Class ;
+                   rdfs:subClassOf plsmo:PLSMO_C0034 ;
+                   chmo:IAO_0000115 "A Quantity Value expresses the magnitude and kind of a quantity and is given by the product of a numerical value n and a unit of measure U. The number multiplying the unit is referred to as the numerical value of the quantity expressed in that unit. Refer to NIST SP 811 section 7 for more on quantity values."@en ;
+                   rdfs:label "Quantity Value"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/Autosampler_Temperature_Deviation
+ic:Autosampler_Temperature_Deviation rdf:type owl:Class ;
+                                     rdfs:subClassOf QUDT:Quantity ;
+                                     rdfs:label "Autosampler Temperature Deviation"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_0022
+ic:IC_0022 rdf:type owl:Class ;
+           owl:equivalentClass ic:IC_C0002 ,
+                               [ owl:intersectionOf ( ic:IC_C0001
+                                                      [ rdf:type owl:Restriction ;
+                                                        owl:onProperty plsmo:PLSMO_R0010 ;
+                                                        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                        owl:onClass AFO:AFR_0001538
+                                                      ]
+                                                      [ rdf:type owl:Restriction ;
+                                                        owl:onProperty plsmo:PLSMO_R0010 ;
+                                                        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                        owl:onClass ic:Autosampler_Temperature_Deviation
+                                                      ]
+                                                      [ rdf:type owl:Restriction ;
+                                                        owl:onProperty plsmo:PLSMO_R0010 ;
+                                                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                        owl:onClass AFO:AFR_0001267
+                                                      ]
+                                                    ) ;
+                                 rdf:type owl:Class
+                               ] ;
+           rdfs:subClassOf ic:IC_C0001 ;
+           chmo:IAO_0000115 "Settings for the autosampler."@en ;
+           rdfs:label "Autosampler Settings"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0001
+ic:IC_C0001 rdf:type owl:Class ;
+            owl:equivalentClass [ owl:intersectionOf ( plsmo:PLSMO_C0002
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty plsmo:PLSMO_R0010 ;
+                                                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                         owl:onClass ic:IC_C0077
+                                                       ]
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty ic:IC_A0001 ;
+                                                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                         owl:onDataRange xsd:string
+                                                       ]
+                                                     ) ;
+                                  rdf:type owl:Class
+                                ] ;
+            rdfs:subClassOf plsmo:PLSMO_C0002 ;
+            chmo:IAO_0000115 "The instrument method contains the settings for each component of the ion chromatograph."@en ;
+            rdfs:label "Instrument Method"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0002
+ic:IC_C0002 rdf:type owl:Class ;
+            owl:equivalentClass [ owl:intersectionOf ( ic:IC_C0001
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty plsmo:PLSMO_R0010 ;
+                                                         owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                         owl:onClass AFO:AFR_0001538
+                                                       ]
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty plsmo:PLSMO_R0010 ;
+                                                         owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                         owl:onClass ic:Autosampler_Temperature_Deviation
+                                                       ]
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty plsmo:PLSMO_R0010 ;
+                                                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                         owl:onClass AFO:AFR_0001267
+                                                       ]
+                                                     ) ;
+                                  rdf:type owl:Class
+                                ] ;
+            rdfs:subClassOf ic:IC_C0001 ;
+            chmo:IAO_0000115 "Settings for the autosampler."@en ;
+            rdfs:label "Sampler Settings"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0003
+ic:IC_C0003 rdf:type owl:Class ;
+            owl:equivalentClass [ owl:intersectionOf ( ic:IC_C0001
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty plsmo:PLSMO_R0010 ;
+                                                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                         owl:onClass ic:IC_C0052
+                                                       ]
+                                                     ) ;
+                                  rdf:type owl:Class
+                                ] ;
+            rdfs:subClassOf ic:IC_C0001 ;
+            chmo:IAO_0000115 "Settings for the electrical conductivity detector."@en ;
+            rdfs:label "Conductivity Detector Settings"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0004
+ic:IC_C0004 rdf:type owl:Class ;
+            owl:equivalentClass [ owl:intersectionOf ( ic:IC_C0001
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty plsmo:PLSMO_R0010 ;
+                                                         owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                         owl:onClass ic:IC_C0058
+                                                       ]
+                                                     ) ;
+                                  rdf:type owl:Class
+                                ] ;
+            rdfs:subClassOf ic:IC_C0001 ;
+            chmo:IAO_0000115 "Settings for the eluent generator."@en ;
+            dcterms:references <http://purl.allotrope.org/ontologies/role#AFRL_0000220> ;
+            rdfs:label "Eluent Generator Settings"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0005
+ic:IC_C0005 rdf:type owl:Class ;
+            rdfs:subClassOf ic:IC_C0004 ;
+            chmo:IAO_0000115 "States the used cartridge, which is used to generate the eluent from. The name of the cartidge contains the chemical substance which mades up the eluent."@en ;
+            dcterms:references <http://purl.allotrope.org/ontologies/role#AFRL_0000220> ;
+            rdfs:label "Eluent Cartridge"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0006
+ic:IC_C0006 rdf:type owl:Class ;
+            rdfs:subClassOf ic:IC_C0004 ;
+            chmo:IAO_0000115 "Determines whether the generated eluent is produced isocratic (one constant concentration for the entire measurement) or gradiant wise (changing concentration over the course of the measurement)."@en ;
+            dcterms:references <http://purl.allotrope.org/ontologies/role#AFRL_0000220> ;
+            rdfs:label "Eluent Mode"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0007
+ic:IC_C0007 rdf:type owl:Class ;
+            owl:equivalentClass [ owl:intersectionOf ( ic:IC_C0001
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty plsmo:PLSMO_R0010 ;
+                                                         owl:someValuesFrom ic:IC_C0057
+                                                       ]
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty plsmo:PLSMO_R0010 ;
+                                                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                         owl:onClass ic:IC_C0079
+                                                       ]
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty plsmo:PLSMO_R0010 ;
+                                                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                         owl:onClass ic:IC_C0080
+                                                       ]
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty plsmo:PLSMO_R0010 ;
+                                                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                         owl:onClass ic:IC_C0082
+                                                       ]
+                                                     ) ;
+                                  rdf:type owl:Class
+                                ] ;
+            rdfs:subClassOf ic:IC_C0001 ;
+            chmo:IAO_0000115 "Settings for the pump unit of the device."@en ;
+            rdfs:label "Pump Settings"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0008
+ic:IC_C0008 rdf:type owl:Class ;
+            rdfs:subClassOf ic:IC_C0007 ;
+            chmo:IAO_0000115 "Defines the systemwise mixture of different eluent components. In case of an isocratic pump mode, there is only one eluent channel. In case of gradient pump mode, the amount of possible different components for the eluent mixture are system dependent."@en ;
+            dcterms:references <http://purl.allotrope.org/ontologies/role#AFRL_0000220> ;
+            rdfs:label "Eluent Channels"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0009
+ic:IC_C0009 rdf:type owl:Class ;
+            rdfs:subClassOf ic:IC_C0007 ;
+            chmo:IAO_0000115 "The mode at which the pump of the device is operated. The mode can either be 'isocratic' or 'gradient'."@en ;
+            rdfs:label "Pump Mode"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0010
+ic:IC_C0010 rdf:type owl:Class ;
+            owl:equivalentClass [ owl:intersectionOf ( ic:IC_C0001
+                                                       [ rdf:type owl:Class ;
+                                                         owl:unionOf ( [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                                                                owl:onProperty plsmo:PLSMO_R0010 ;
+                                                                                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                                owl:onClass ic:IC_C0041
+                                                                                              ]
+                                                                                              [ rdf:type owl:Restriction ;
+                                                                                                owl:onProperty plsmo:PLSMO_R0010 ;
+                                                                                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                                owl:onClass ic:IC_C0042
+                                                                                              ]
+                                                                                              [ rdf:type owl:Restriction ;
+                                                                                                owl:onProperty plsmo:PLSMO_R0010 ;
+                                                                                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                                owl:onClass ic:IC_C0078
+                                                                                              ]
+                                                                                            ) ;
+                                                                         rdf:type owl:Class
+                                                                       ]
+                                                                       [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                                                                owl:onProperty plsmo:PLSMO_R0010 ;
+                                                                                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                                owl:onClass ic:IC_C0045
+                                                                                              ]
+                                                                                              [ rdf:type owl:Restriction ;
+                                                                                                owl:onProperty plsmo:PLSMO_R0010 ;
+                                                                                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                                owl:onClass ic:IC_C0050
+                                                                                              ]
+                                                                                              [ rdf:type owl:Restriction ;
+                                                                                                owl:onProperty plsmo:PLSMO_R0010 ;
+                                                                                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                                owl:onClass ic:IC_C0061
+                                                                                              ]
+                                                                                              [ rdf:type owl:Restriction ;
+                                                                                                owl:onProperty plsmo:PLSMO_R0010 ;
+                                                                                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                                owl:onClass ic:IC_C0066
+                                                                                              ]
+                                                                                              [ rdf:type owl:Restriction ;
+                                                                                                owl:onProperty plsmo:PLSMO_R0010 ;
+                                                                                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                                owl:onClass ic:IC_C0071
+                                                                                              ]
+                                                                                              [ rdf:type owl:Restriction ;
+                                                                                                owl:onProperty plsmo:PLSMO_R0010 ;
+                                                                                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                                owl:onClass ic:IC_C0078
+                                                                                              ]
+                                                                                            ) ;
+                                                                         rdf:type owl:Class
+                                                                       ]
+                                                                       [ rdf:type owl:Class ;
+                                                                         owl:complementOf [ rdf:type owl:Restriction ;
+                                                                                            owl:onProperty plsmo:PLSMO_R0010 ;
+                                                                                            owl:someValuesFrom ic:IC_C0078
+                                                                                          ]
+                                                                       ]
+                                                                     )
+                                                       ]
+                                                     ) ;
+                                  rdf:type owl:Class
+                                ] ;
+            rdfs:subClassOf ic:IC_C0001 ;
+            chmo:IAO_0000115 "Settings of the used suppressor also defines the type of carried-out chromatography."@en ;
+            dcterms:references ic:IC_C0027 ,
+                               ic:IC_C0028 ,
+                               ic:IC_C0030 ,
+                               ic:IC_C0031 ;
+            rdfs:label "Suppressor Settings"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0011
+ic:IC_C0011 rdf:type owl:Class ;
+            rdfs:subClassOf ic:IC_C0010 ;
+            chmo:IAO_0000115 "Type of the used suppressor. Can either be electrically suppressed, chemically suppressed and their subtypes or without supression."@en ;
+            dcterms:references ic:IC_C0026 ,
+                               ic:IC_C0027 ,
+                               ic:IC_C0029 ,
+                               ic:IC_C0030 ;
+            rdfs:label "Suppressor Type"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0012
+ic:IC_C0012 rdf:type owl:Class ;
+            owl:equivalentClass [ owl:intersectionOf ( ic:IC_C0001
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty plsmo:PLSMO_R0010 ;
+                                                         owl:someValuesFrom ic:IC_C0075
+                                                       ]
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty plsmo:PLSMO_R0010 ;
+                                                         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                         owl:onClass ic:IC_C0074
+                                                       ]
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty plsmo:PLSMO_R0010 ;
+                                                         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                         owl:onClass ic:IC_C0081
+                                                       ]
+                                                     ) ;
+                                  rdf:type owl:Class
+                                ] ;
+            rdfs:subClassOf ic:IC_C0001 ;
+            chmo:IAO_0000115 "Settings for the UV-VIS-detector."@en ;
+            rdfs:label "UV/VIS Detector Settings"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0013
+ic:IC_C0013 rdf:type owl:Class ;
+            owl:equivalentClass [ owl:intersectionOf ( plsmo:PLSMO_C0002
+                                                       [ rdf:type owl:Class ;
+                                                         owl:unionOf ( [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                                                                owl:onProperty plsmo:PLSMO_R0010 ;
+                                                                                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                                owl:onClass ic:IC_C0036
+                                                                                              ]
+                                                                                              [ rdf:type owl:Restriction ;
+                                                                                                owl:onProperty plsmo:PLSMO_R0010 ;
+                                                                                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                                owl:onClass ic:IC_C0037
+                                                                                              ]
+                                                                                              [ rdf:type owl:Restriction ;
+                                                                                                owl:onProperty plsmo:PLSMO_R0010 ;
+                                                                                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                                owl:onClass ic:IC_C0038
+                                                                                              ]
+                                                                                              [ rdf:type owl:Restriction ;
+                                                                                                owl:onProperty plsmo:PLSMO_R0010 ;
+                                                                                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                                owl:onClass ic:IC_C0039
+                                                                                              ]
+                                                                                              [ rdf:type owl:Restriction ;
+                                                                                                owl:onProperty plsmo:PLSMO_R0010 ;
+                                                                                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                                owl:onClass ic:IC_C0040
+                                                                                              ]
+                                                                                              [ rdf:type owl:Restriction ;
+                                                                                                owl:onProperty plsmo:PLSMO_R0010 ;
+                                                                                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                                owl:onClass ic:IC_C0043
+                                                                                              ]
+                                                                                              [ rdf:type owl:Restriction ;
+                                                                                                owl:onProperty plsmo:PLSMO_R0010 ;
+                                                                                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                                owl:onClass ic:IC_C0044
+                                                                                              ]
+                                                                                              [ rdf:type owl:Restriction ;
+                                                                                                owl:onProperty plsmo:PLSMO_R0010 ;
+                                                                                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                                owl:onClass ic:IC_C0048
+                                                                                              ]
+                                                                                              [ rdf:type owl:Restriction ;
+                                                                                                owl:onProperty plsmo:PLSMO_R0010 ;
+                                                                                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                                owl:onClass ic:IC_C0055
+                                                                                              ]
+                                                                                              [ rdf:type owl:Restriction ;
+                                                                                                owl:onProperty plsmo:PLSMO_R0010 ;
+                                                                                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                                owl:onClass ic:IC_C0056
+                                                                                              ]
+                                                                                              [ rdf:type owl:Restriction ;
+                                                                                                owl:onProperty plsmo:PLSMO_R0010 ;
+                                                                                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                                owl:onClass ic:IC_C0072
+                                                                                              ]
+                                                                                              [ rdf:type owl:Restriction ;
+                                                                                                owl:onProperty plsmo:PLSMO_R0010 ;
+                                                                                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                                owl:onClass ic:IC_C0073
+                                                                                              ]
+                                                                                              [ rdf:type owl:Restriction ;
+                                                                                                owl:onProperty plsmo:PLSMO_R0010 ;
+                                                                                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                                owl:onClass ic:IC_C0084
+                                                                                              ]
+                                                                                              [ rdf:type owl:Restriction ;
+                                                                                                owl:onProperty plsmo:PLSMO_R0010 ;
+                                                                                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                                owl:onClass ic:IC_C0085
+                                                                                              ]
+                                                                                            ) ;
+                                                                         rdf:type owl:Class
+                                                                       ]
+                                                                       [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                                                                owl:onProperty plsmo:PLSMO_R0010 ;
+                                                                                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                                owl:onClass ic:IC_C0046
+                                                                                              ]
+                                                                                              [ rdf:type owl:Restriction ;
+                                                                                                owl:onProperty plsmo:PLSMO_R0010 ;
+                                                                                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                                owl:onClass ic:IC_C0047
+                                                                                              ]
+                                                                                              [ rdf:type owl:Restriction ;
+                                                                                                owl:onProperty plsmo:PLSMO_R0010 ;
+                                                                                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                                owl:onClass ic:IC_C0049
+                                                                                              ]
+                                                                                              [ rdf:type owl:Restriction ;
+                                                                                                owl:onProperty plsmo:PLSMO_R0010 ;
+                                                                                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                                owl:onClass ic:IC_C0051
+                                                                                              ]
+                                                                                              [ rdf:type owl:Restriction ;
+                                                                                                owl:onProperty plsmo:PLSMO_R0010 ;
+                                                                                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                                owl:onClass ic:IC_C0053
+                                                                                              ]
+                                                                                              [ rdf:type owl:Restriction ;
+                                                                                                owl:onProperty plsmo:PLSMO_R0010 ;
+                                                                                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                                owl:onClass ic:IC_C0054
+                                                                                              ]
+                                                                                              [ rdf:type owl:Restriction ;
+                                                                                                owl:onProperty plsmo:PLSMO_R0010 ;
+                                                                                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                                owl:onClass ic:IC_C0059
+                                                                                              ]
+                                                                                              [ rdf:type owl:Restriction ;
+                                                                                                owl:onProperty plsmo:PLSMO_R0010 ;
+                                                                                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                                owl:onClass ic:IC_C0060
+                                                                                              ]
+                                                                                              [ rdf:type owl:Restriction ;
+                                                                                                owl:onProperty plsmo:PLSMO_R0010 ;
+                                                                                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                                owl:onClass ic:IC_C0062
+                                                                                              ]
+                                                                                              [ rdf:type owl:Restriction ;
+                                                                                                owl:onProperty plsmo:PLSMO_R0010 ;
+                                                                                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                                owl:onClass ic:IC_C0063
+                                                                                              ]
+                                                                                              [ rdf:type owl:Restriction ;
+                                                                                                owl:onProperty plsmo:PLSMO_R0010 ;
+                                                                                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                                owl:onClass ic:IC_C0064
+                                                                                              ]
+                                                                                              [ rdf:type owl:Restriction ;
+                                                                                                owl:onProperty plsmo:PLSMO_R0010 ;
+                                                                                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                                owl:onClass ic:IC_C0065
+                                                                                              ]
+                                                                                              [ rdf:type owl:Restriction ;
+                                                                                                owl:onProperty plsmo:PLSMO_R0010 ;
+                                                                                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                                owl:onClass ic:IC_C0072
+                                                                                              ]
+                                                                                              [ rdf:type owl:Restriction ;
+                                                                                                owl:onProperty plsmo:PLSMO_R0010 ;
+                                                                                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                                                owl:onClass ic:IC_C0073
+                                                                                              ]
+                                                                                            ) ;
+                                                                         rdf:type owl:Class
+                                                                       ]
+                                                                     )
+                                                       ]
+                                                     ) ;
+                                  rdf:type owl:Class
+                                ] ;
+            rdfs:subClassOf plsmo:PLSMO_C0002 ;
+            chmo:IAO_0000115 "The processing method describes a batch of settings (such as retention time windows for labeling of specific ions) which can be applied to a measurement for processing the raw measurement data."@en ;
+            rdfs:label "Processing Method"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0014
+ic:IC_C0014 rdf:type owl:Class ;
+            rdfs:subClassOf plsmo:PLSMO_C0002 ;
+            chmo:IAO_0000115 "Part of the configuration, related to the used columns. The used columns defining the ion separation properties of the instrument."@en ;
+            rdfs:label "Separation Configuration"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0015
+ic:IC_C0015 rdf:type owl:Class ;
+            owl:equivalentClass [ owl:intersectionOf ( ic:IC_C0014
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty plsmo:PLSMO_R0010 ;
+                                                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                         owl:onClass AFO:AFR_0002029
+                                                       ]
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty plsmo:PLSMO_R0010 ;
+                                                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                         owl:onClass AFO:AFR_0002561
+                                                       ]
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty plsmo:PLSMO_R0010 ;
+                                                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                         owl:onClass ic:IC_C0089
+                                                       ]
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty plsmo:PLSMO_R0010 ;
+                                                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                         owl:onClass ic:IC_C0091
+                                                       ]
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty ic:IC_A0002 ;
+                                                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                         owl:onDataRange xsd:string
+                                                       ]
+                                                     ) ;
+                                  rdf:type owl:Class
+                                ] ;
+            rdfs:subClassOf ic:IC_C0014 ;
+            chmo:IAO_0000115 """Guard columns protect the separator column from harmful sample components. They are positioned between the sample inlet and the separating columns.
+------------------------------------------------------------------------------------------------------------------------
+Definition derived from: ASTM Norm E1151-93 \"Standard Practice for Ion Chromatography Terms and Relationships"""@en ;
+            rdfs:label "Guard Column"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0016
+ic:IC_C0016 rdf:type owl:Class ;
+            rdfs:subClassOf ic:IC_C0014 ;
+            chmo:IAO_0000115 """Pre-columns are used to condition the mobile phase and are placed before the sample inlet.
+------------------------------------------------------------------------------------------------------------------------
+Definition derived from: ASTM Norm E1151-93 \"Standard Practice for Ion Chromatography Terms and Relationships\""""@en ;
+            rdfs:label "Pre-column"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0017
+ic:IC_C0017 rdf:type owl:Class ;
+            owl:equivalentClass [ owl:intersectionOf ( ic:IC_C0014
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty plsmo:PLSMO_R0010 ;
+                                                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                         owl:onClass AFO:AFR_0002029
+                                                       ]
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty plsmo:PLSMO_R0010 ;
+                                                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                         owl:onClass AFO:AFR_0002561
+                                                       ]
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty plsmo:PLSMO_R0010 ;
+                                                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                         owl:onClass ic:IC_C0088
+                                                       ]
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty plsmo:PLSMO_R0010 ;
+                                                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                         owl:onClass ic:IC_C0090
+                                                       ]
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty ic:IC_A0003 ;
+                                                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                         owl:onDataRange xsd:string
+                                                       ]
+                                                     ) ;
+                                  rdf:type owl:Class
+                                ] ;
+            rdfs:subClassOf ic:IC_C0014 ;
+            chmo:IAO_0000115 """Separation columns are used to separate sample components. They are placed after the sample inlet and after guard columns (if used).
+------------------------------------------------------------------------------------------------------------------------
+Definition derived from: ASTM Norm E1151-93 \"Standard Practice for Ion Chromatography Terms and Relationships"""@en ;
+            rdfs:label "Separation Column"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0018
+ic:IC_C0018 rdf:type owl:Class ;
+            rdfs:subClassOf plsmo:PLSMO_C0013 ;
+            chmo:IAO_0000115 "Diagnostic methods used to measure properties of liquid samples. Examples chromatography such as liquid chromatography (LC), ion-exchange chromatography (IC) and spectroscopy such as  atomic absorption spectroscopy."@en ;
+            rdfs:label "Liquid Diagnostics"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0019
+ic:IC_C0019 rdf:type owl:Class ;
+            rdfs:subClassOf chmo:CHMO_0001001 ;
+            chmo:IAO_0000115 """A general term for several liquid column chromatographic techniques for the analysis of ionic or ionizable compounds.
+------------------------------------------------------------------------------------------------------------------------
+Source: ASTM Norm E1151-93 \"Standard Practice for Ion Chromatography Terms and Relationships\""""@en ;
+            rdfs:label "Ion Chromatography"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0020
+ic:IC_C0020 rdf:type owl:Class ;
+            rdfs:subClassOf ic:IC_C0019 ;
+            chmo:IAO_0000115 "A special type of ion chromatography based on the Gibbs-Donnan effect, caused by fixed ions of an anion/cation exchanger."@en ;
+            rdfs:label "Donnan Exclusion Chromatography"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0023
+ic:IC_C0023 rdf:type owl:Class ;
+            rdfs:subClassOf ic:IC_C0014 ;
+            chmo:IAO_0000115 """A suppressor column is used to selectively reduce the conductivity of the mobile phase to enhance the detection of the sample components. Suppressor columns are placed between the separation column and the detector.
+------------------------------------------------------------------------------------------------------------------------
+Definition derived from: ASTM Norm E1151-93 \"Standard Practice for Ion Chromatography Terms and Relationships"""@en ;
+            rdfs:label "Suppressor Column"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0024
+ic:IC_C0024 rdf:type owl:Class ;
+            rdfs:subClassOf ic:IC_C0014 ;
+            chmo:IAO_0000115 "A post column derivatization reactor is used in chromatography where the separated sample components leaving the separation column are mixed with a chemical reagent to form detectable products (e.g., colored or fluorescent compounds) before entering the detector."@en ;
+            rdfs:label "Post Column Derivatization Reactor"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0025
+ic:IC_C0025 rdf:type owl:Class ;
+            chmo:IAO_0000115 "Terminology, which is not directly necessary to describe ion chromatography measurements but contribute to a better understanding of the measurement technology."@en ;
+            rdfs:label "Related Terminology"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0026
+ic:IC_C0026 rdf:type owl:Class ;
+            rdfs:subClassOf ic:IC_C0025 ;
+            chmo:IAO_0000115 "The suppressor is regenerated by rinsing the stationary phase with acid to provide protons for the subsequent suppression of eluent and analyte."@en ;
+            rdfs:label "Chemically Regenerated Suppressor"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0027
+ic:IC_C0027 rdf:type owl:Class ;
+            owl:equivalentClass ic:IC_C0028 ;
+            rdfs:subClassOf ic:IC_C0025 ;
+            chmo:IAO_0000115 """Chemically suppressed ion chromatography describes a technique, where sample components are separated by a low capacity ion exchanger and detected conductimetrically. The detection of the sample components is enhanced by selctively suppressing the conductivity of the mobile phase through suppressor columns after the separation column.
+------------------------------------------------------------------------------------------------------------------------
+Definition derived from: ASTM Norm E1151-93 \"Standard Practice for Ion Chromatography Terms and Relationships"""@en ;
+            rdfs:label "Chemically Suppressed Ion Chromatography"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0028
+ic:IC_C0028 rdf:type owl:Class ;
+            rdfs:subClassOf ic:IC_C0025 ;
+            chmo:IAO_0000115 "The dual column ion chromatography technique is mostly chemically suppressed, as the usage of suppressor columns in front of a separation column is recommended to perform the ion chromatographic measurement. The usage of pre- or guard columns is optional."@en ;
+            rdfs:label "Dual Column Ion Chromatography"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0029
+ic:IC_C0029 rdf:type owl:Class ;
+            rdfs:subClassOf ic:IC_C0025 ;
+            chmo:IAO_0000115 "The solid phase of the suppressor is regenerated by an electrochemical process for continuous operation."@en ;
+            rdfs:label "Electronically Regenerated Supressor"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0030
+ic:IC_C0030 rdf:type owl:Class ;
+            owl:equivalentClass ic:IC_C0031 ;
+            rdfs:subClassOf ic:IC_C0025 ;
+            chmo:IAO_0000115 """Electronically suppressed ion chromatography describes a technique, where sample components are separated by a low capacity ion exchanger and conductimetric detection. The mobile phase contains ions, which conductance differs from the measured sample ions, as the background signal of the mobile phase will be minimized by electronic suppression.
+------------------------------------------------------------------------------------------------------------------------
+Definition derived from: ASTM Norm E1151-93 \"Standard Practice for Ion Chromatography Terms and Relationships"""@en ;
+            dcterms:references <http://purl.allotrope.org/ontologies/role#AFRL_0000011> ;
+            rdfs:label "Electronically Suppressed Ion Chromatography"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0031
+ic:IC_C0031 rdf:type owl:Class ;
+            rdfs:subClassOf ic:IC_C0025 ;
+            chmo:IAO_0000115 "A single column ion chromatography technique is mostly electronically suppressed, as only a separation column is need to perform the ion chromatographic measurement. The usage of pre- or guard columns is optional."@en ;
+            rdfs:label "Single Column Ion Chromatography"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0032
+ic:IC_C0032 rdf:type owl:Class ;
+            rdfs:subClassOf ic:IC_C0025 ;
+            chmo:IAO_0000115 "Peak caused by a unretained signals (e.g. pressure/conductivity changes upon sample injection or unretained sample components). This peak is close to thecolumn  void volume time."@en ;
+            rdfs:label "Void Peak"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0036
+ic:IC_C0036 rdf:type owl:Class ;
+            rdfs:subClassOf QUDT:Quantity ;
+            chmo:IAO_0000115 "Sodium specific retention time."@en ;
+            rdfs:label "Sodium Retention Time"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0037
+ic:IC_C0037 rdf:type owl:Class ;
+            rdfs:subClassOf QUDT:Quantity ;
+            chmo:IAO_0000115 "Lithium specific retention time."@en ;
+            rdfs:label "Lithium Retention Time"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0038
+ic:IC_C0038 rdf:type owl:Class ;
+            rdfs:subClassOf QUDT:Quantity ;
+            chmo:IAO_0000115 "Calcium specific retention time."@en ;
+            rdfs:label "Calcium Retention Time"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0039
+ic:IC_C0039 rdf:type owl:Class ;
+            rdfs:subClassOf QUDT:Quantity ;
+            chmo:IAO_0000115 "Potassium specific retention time."@en ;
+            rdfs:label "Potassium Retention Time"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0040
+ic:IC_C0040 rdf:type owl:Class ;
+            rdfs:subClassOf QUDT:Quantity ;
+            chmo:IAO_0000115 "Ammonium specific retention time."@en ;
+            rdfs:label "Ammonium Retention Time"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0041
+ic:IC_C0041 rdf:type owl:Class ;
+            rdfs:subClassOf QUDT:Quantity ;
+            chmo:IAO_0000115 "The set current to suppress the protons from the methanesulfonic acid eluent during electronically suppressed ion chromatography. Alternatively, the molarity can be specified, from which the required current can be calculated."@en ;
+            dcterms:references <http://purl.allotrope.org/ontologies/role#AFRL_0000220> ,
+                               ic:IC_C0030 ;
+            rdfs:label "Methanesulfonic Acid Supression Current"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0042
+ic:IC_C0042 rdf:type owl:Class ;
+            rdfs:subClassOf QUDT:Quantity ;
+            chmo:IAO_0000115 "The set current to suppress the protons from the sulphuric acid eluent during electronically suppressed ion chromatography. Alternatively, the molarity can be specified, from which the required current can be calculated."@en ;
+            rdfs:label "Sulphuric Acid Suppression Current"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0043
+ic:IC_C0043 rdf:type owl:Class ;
+            rdfs:subClassOf QUDT:Quantity ;
+            chmo:IAO_0000115 "Sodium specific retention time window width of the used processing method."@en ;
+            rdfs:label "Sodium Retention Time Window Width"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0044
+ic:IC_C0044 rdf:type owl:Class ;
+            rdfs:subClassOf QUDT:Quantity ;
+            chmo:IAO_0000115 "Lithium specific retention time window width of the used processing method."@en ;
+            rdfs:label "Lithium Retention Time Window Width"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0045
+ic:IC_C0045 rdf:type owl:Class ;
+            rdfs:subClassOf QUDT:Quantity ;
+            chmo:IAO_0000115 "The set current to suppress bicarbonate ions from the eluent during electronically suppressed ion chromatography. Alternatively, the molarity can be specified, from which the required current can be calculated."@en ;
+            dcterms:references <http://purl.allotrope.org/ontologies/role#AFRL_0000220> ,
+                               ic:IC_C0030 ;
+            rdfs:label "Bicarbonate Suppression Current"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0046
+ic:IC_C0046 rdf:type owl:Class ;
+            rdfs:subClassOf QUDT:Quantity ;
+            chmo:IAO_0000115 "Bromide specific retention time."@en ;
+            rdfs:label "Bromide Retention Time"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0047
+ic:IC_C0047 rdf:type owl:Class ;
+            rdfs:subClassOf QUDT:Quantity ;
+            chmo:IAO_0000115 "Bromide specific retention time window width of the used processing method."@en ;
+            rdfs:label "Bromide Retention Time Window Width"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0048
+ic:IC_C0048 rdf:type owl:Class ;
+            rdfs:subClassOf QUDT:Quantity ;
+            chmo:IAO_0000115 "Calcium specific retention time window width of the used processing method."@en ;
+            rdfs:label "Calcium Retention Time Window Width"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0049
+ic:IC_C0049 rdf:type owl:Class ;
+            rdfs:subClassOf QUDT:Quantity ;
+            chmo:IAO_0000115 "Carbonate specific retention time."@en ;
+            rdfs:label "Carbonate Retention Time"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0050
+ic:IC_C0050 rdf:type owl:Class ;
+            rdfs:subClassOf QUDT:Quantity ;
+            chmo:IAO_0000115 "The set current to suppress carbonate ions from the eluent during electronically suppressed ion chromatography. Alternatively, the molarity can be specified, from which the required current can be calculated."@en ;
+            dcterms:references <http://purl.allotrope.org/ontologies/role#AFRL_0000220> ,
+                               ic:IC_C0030 ;
+            rdfs:label "Carbonate Suppression Current"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0051
+ic:IC_C0051 rdf:type owl:Class ;
+            rdfs:subClassOf QUDT:Quantity ;
+            chmo:IAO_0000115 "Carbonate specific retention time window width of the used processing method."@en ;
+            rdfs:label "Carbonate Retention Time Window Width"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0052
+ic:IC_C0052 rdf:type owl:Class ;
+            rdfs:subClassOf QUDT:Quantity ;
+            chmo:IAO_0000115 "Defines the sampling rate of the used conductivity detector, which describes how many data points are collected per second."@en ;
+            rdfs:label "CD Data Collection Rate"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0053
+ic:IC_C0053 rdf:type owl:Class ;
+            rdfs:subClassOf QUDT:Quantity ;
+            chmo:IAO_0000115 "Chloride specific retention time."@en ;
+            rdfs:label "Chloride Retention Time"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0054
+ic:IC_C0054 rdf:type owl:Class ;
+            rdfs:subClassOf QUDT:Quantity ;
+            chmo:IAO_0000115 "Chloride specific retention time window width of the used processing method."@en ;
+            rdfs:label "Chloride Retention Time Window Width"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0055
+ic:IC_C0055 rdf:type owl:Class ;
+            rdfs:subClassOf QUDT:Quantity ;
+            chmo:IAO_0000115 "Potassium specific retention time window width of the used processing method."@en ;
+            rdfs:label "Potassium Retention Time Window Width"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0056
+ic:IC_C0056 rdf:type owl:Class ;
+            rdfs:subClassOf QUDT:Quantity ;
+            chmo:IAO_0000115 "Ammonium specific retention time window width of the used processing method."@en ;
+            rdfs:label "Ammonium Retention Time Window Width"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0057
+ic:IC_C0057 rdf:type owl:Class ;
+            rdfs:subClassOf QUDT:Quantity ;
+            chmo:IAO_0000115 "Value of the admixture rate of the used eluent channel. The Sum of each value has to be 100% in total. Each channel shall have its own quantity."@en ;
+            dcterms:references <http://purl.allotrope.org/ontologies/role#AFRL_0000220> ;
+            rdfs:label "Eluent Channel Admixture Rate"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0058
+ic:IC_C0058 rdf:type owl:Class ;
+            rdfs:subClassOf QUDT:Quantity ;
+            chmo:IAO_0000115 "Defines the concentration of the used mobile phase (eluent) during the sample separation process."@en ;
+            dcterms:references <http://purl.allotrope.org/ontologies/role#AFRL_0000011> ,
+                               <http://purl.allotrope.org/ontologies/role#AFRL_0000220> ;
+            rdfs:label "Eluent Concentration"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0059
+ic:IC_C0059 rdf:type owl:Class ;
+            rdfs:subClassOf QUDT:Quantity ;
+            chmo:IAO_0000115 "Fluoride specific retention time."@en ;
+            rdfs:label "Fluoride Retention Time"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0060
+ic:IC_C0060 rdf:type owl:Class ;
+            rdfs:subClassOf QUDT:Quantity ;
+            chmo:IAO_0000115 "Fluoride specific retention time window width of the used processing method."@en ;
+            rdfs:label "Fluioride Retention Time Window Width"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0061
+ic:IC_C0061 rdf:type owl:Class ;
+            rdfs:subClassOf QUDT:Quantity ;
+            chmo:IAO_0000115 "The set current to suppress hydroxide ions from the eluent during electronically suppressed ion chromatography. Alternatively, the molarity can be specified, from which the required current can be calculated."@en ;
+            dcterms:references <http://purl.allotrope.org/ontologies/role#AFRL_0000220> ,
+                               ic:IC_C0030 ;
+            rdfs:label "Hydroxide Suppression Current"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0062
+ic:IC_C0062 rdf:type owl:Class ;
+            rdfs:subClassOf QUDT:Quantity ;
+            chmo:IAO_0000115 "Nitrate specific retention time."@en ;
+            rdfs:label "Nitrate Retention Time"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0063
+ic:IC_C0063 rdf:type owl:Class ;
+            rdfs:subClassOf QUDT:Quantity ;
+            chmo:IAO_0000115 "Nitrate specific retention time window width of the used processing method."@en ;
+            rdfs:label "Nitrate Retention Time Window Width"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0064
+ic:IC_C0064 rdf:type owl:Class ;
+            rdfs:subClassOf QUDT:Quantity ;
+            chmo:IAO_0000115 "Nitrite specific retention time."@en ;
+            rdfs:label "Nitrite Retention Time"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0065
+ic:IC_C0065 rdf:type owl:Class ;
+            rdfs:subClassOf QUDT:Quantity ;
+            chmo:IAO_0000115 "Nitrite specific retention time window width of the used processing method."@en ;
+            rdfs:label "Nitrite Retention Time Window Width"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0066
+ic:IC_C0066 rdf:type owl:Class ;
+            rdfs:subClassOf QUDT:Quantity ;
+            chmo:IAO_0000115 "The set current to suppress various other ions (which are not covered yet) from the eluent during electronically suppressed ion chromatography. Alternatively, the molarity can be specified, from which the required current can be calculated."@en ;
+            dcterms:references <http://purl.allotrope.org/ontologies/role#AFRL_0000220> ,
+                               ic:IC_C0030 ;
+            rdfs:label "Other Suppression Currents"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0067
+ic:IC_C0067 rdf:type owl:Class ;
+            rdfs:subClassOf QUDT:Quantity ;
+            chmo:IAO_0000115 "Phosphate specific retention time."@en ;
+            rdfs:label "Phosphate Retention Time"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0068
+ic:IC_C0068 rdf:type owl:Class ;
+            rdfs:subClassOf QUDT:Quantity ;
+            chmo:IAO_0000115 "Phosphate specific retention time window width of the used processing method."@en ;
+            rdfs:label "Phosphate Retention Time Window Width"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0069
+ic:IC_C0069 rdf:type owl:Class ;
+            rdfs:subClassOf QUDT:Quantity ;
+            chmo:IAO_0000115 "Sulfate specific retention time."@en ;
+            rdfs:label "Sulfate Retention Time"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0070
+ic:IC_C0070 rdf:type owl:Class ;
+            rdfs:subClassOf QUDT:Quantity ;
+            chmo:IAO_0000115 "Sulfate specific retention time window width of the used processing method."@en ;
+            rdfs:label "Sulfate Retention Time Window Width"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0071
+ic:IC_C0071 rdf:type owl:Class ;
+            rdfs:subClassOf QUDT:Quantity ;
+            chmo:IAO_0000115 "The set current to suppress tetraborate ions from the eluent during electronically suppressed ion chromatography. Alternatively, the molarity can be specified, from which the required current can be calculated."@en ;
+            rdfs:label "Tetraborate Suppression Current"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0072
+ic:IC_C0072 rdf:type owl:Class ;
+            rdfs:subClassOf QUDT:Quantity ;
+            chmo:IAO_0000115 "Void peak specific retention time."@en ;
+            dcterms:references ic:IC_C0032 ;
+            rdfs:label "Void Retention Time"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0073
+ic:IC_C0073 rdf:type owl:Class ;
+            rdfs:subClassOf QUDT:Quantity ;
+            chmo:IAO_0000115 "Time range in which the void peak is expected."@en ;
+            dcterms:references ic:IC_C0032 ;
+            rdfs:label "Void Retention Time Window Width"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0074
+ic:IC_C0074 rdf:type owl:Class ;
+            rdfs:subClassOf QUDT:Quantity ;
+            chmo:IAO_0000115 "Defines the sampling rate of the used UV/VIS detector, which describes how many data points are collected per second."@en ;
+            rdfs:label "UV/VIS data collection rate"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0075
+ic:IC_C0075 rdf:type owl:Class ;
+            rdfs:subClassOf QUDT:Quantity ;
+            chmo:IAO_0000115 "Wavelength of each set channel for the UV/VIS detector"@en ;
+            rdfs:label "UV/VIS channel wavelength"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0077
+ic:IC_C0077 rdf:type owl:Class ;
+            rdfs:subClassOf QUDT:Quantity ;
+            chmo:IAO_0000115 "Duration of a singular measurement, starting at sample injection."@en ;
+            rdfs:label "Runtime"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0078
+ic:IC_C0078 rdf:type owl:Class ;
+            rdfs:subClassOf QUDT:Quantity ;
+            chmo:IAO_0000115 "Set total current of the suppressor (sum of each individual current), which is applied during electronically suppressed ion chromatography."@en ;
+            rdfs:label "Total Suppressor Current"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0079
+ic:IC_C0079 rdf:type owl:Class ;
+            rdfs:subClassOf QUDT:Quantity ;
+            chmo:IAO_0000115 "Flow rate of the eluent during the sample separation process."@en ;
+            dcterms:references <http://purl.allotrope.org/ontologies/role#AFRL_0000220> ;
+            rdfs:label "Eluent Flow Rate"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0080
+ic:IC_C0080 rdf:type owl:Class ;
+            rdfs:subClassOf QUDT:Quantity ;
+            chmo:IAO_0000115 "The minimum pressure limit for the pump system. The measurement will be interrupted, if the pressure falls below this value."@en ;
+            rdfs:label "Lower Pressure Limit"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0081
+ic:IC_C0081 rdf:type owl:Class ;
+            rdfs:subClassOf QUDT:Quantity ;
+            chmo:IAO_0000115 "Time constant used for the UV/VIs detector."@en ;
+            rdfs:label "UV/VIS Time Constant"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0082
+ic:IC_C0082 rdf:type owl:Class ;
+            rdfs:subClassOf QUDT:Quantity ;
+            chmo:IAO_0000115 "The maximum system pressure limit, if the pressure exceeds this value, the measurement will be interrupted to prevent damage to the system."@en ;
+            rdfs:label "Upper Pressure Limit"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0084
+ic:IC_C0084 rdf:type owl:Class ;
+            rdfs:subClassOf QUDT:Quantity ;
+            chmo:IAO_0000115 "Magnesium specific retention time window width of the used processing method."@en ;
+            rdfs:label "Magnesium Retention Time"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0085
+ic:IC_C0085 rdf:type owl:Class ;
+            rdfs:subClassOf QUDT:Quantity ;
+            chmo:IAO_0000115 "Magnesium specific retention time window width of the used processing method."@en ;
+            rdfs:label "Magnesium Retention Time Window Width"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0088
+ic:IC_C0088 rdf:type owl:Class ;
+            rdfs:subClassOf QUDT:Quantity ;
+            chmo:IAO_0000115 "Inner diameter of the used separation column."@en ;
+            rdfs:label "Separation Column Inner Diameter"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0089
+ic:IC_C0089 rdf:type owl:Class ;
+            rdfs:subClassOf QUDT:Quantity ;
+            chmo:IAO_0000115 "Inner diameter of the used guard column."@en ;
+            rdfs:label "Guard Column Inner Diameter"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0090
+ic:IC_C0090 rdf:type owl:Class ;
+            rdfs:subClassOf plsmo:PLSMO_C0017 ;
+            chmo:IAO_0000115 "Packing Material of the used separation column."@en ;
+            rdfs:label "Separation Column Packing Material"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0091
+ic:IC_C0091 rdf:type owl:Class ;
+            rdfs:subClassOf plsmo:PLSMO_C0017 ;
+            chmo:IAO_0000115 "Packing Material of the used guard column."@en ;
+            rdfs:label "Guard Column Packing Material"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_C0002
+plsmo:PLSMO_C0002 rdf:type owl:Class ;
+                  rdfs:subClassOf plsmo:PLSMO_C0026 ;
+                  chmo:IAO_0000115 "A set of settings and parameters of a device or instrument."@en ;
+                  rdfs:label "Configuration"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_C0003
+plsmo:PLSMO_C0003 rdf:type owl:Class ;
+                  chmo:IAO_0000115 "A device is an object that is invented or constructed to serve a specific function."@en ;
+                  rdfs:label "Device"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_C0013
+plsmo:PLSMO_C0013 rdf:type owl:Class ;
+                  chmo:IAO_0000115 """Plasma diagnostic methods used to measure properties of a plasma. Examples: invasive probe methods, passive spectroscopy, active spectroscopy, etc.
+Wikipedia: https://en.wikipedia.org/wiki/Plasma_diagnostics"""@en ;
+                  rdfs:label "Diagnostic Method"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_C0017
+plsmo:PLSMO_C0017 rdf:type owl:Class ;
+                  rdfs:subClassOf plsmo:PLSMO_C0034 ;
+                  chmo:IAO_0000115 "A Qualitative Descriptor is a type of descriptor that describes an entity by expressing a quality, property, or feature in a non-numerical manner. It conveys information about the entity's characteristics, attributes, or nature using words, terms, or concepts rather than measurements or numbers. Example: thermal, virucidal, high-frequency, etc."@en ;
+                  rdfs:label "Qualitative Descriptor"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_C0021
+plsmo:PLSMO_C0021 rdf:type owl:Class ;
+                  rdfs:subClassOf plsmo:PLSMO_C0030 ;
+                  chmo:IAO_0000115 """A scientific experiment is a research method which permits the investigation of cause-effect relations between known and unknown (target) variables of the field of study (domain). An experimental result cannot be known with certainty in advance.
+
+EXPO ontology: http://www.hozo.jp/owl/EXPOApr19.xml/ScientificExperiment"""@en ;
+                  rdfs:label "Scientific Experiment"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_C0026
+plsmo:PLSMO_C0026 rdf:type owl:Class ;
+                  chmo:IAO_0000115 "Description is an information about an object. For example, a device is an object that can have a specification, configuration, and/or properties. A description consists of both quantitative and qualitative descriptors. Such as physical quantities and some qualitative characteristics."@en ;
+                  rdfs:label "Description"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_C0030
+plsmo:PLSMO_C0030 rdf:type owl:Class ;
+                  chmo:IAO_0000115 "Any systematic investigation or inquiry aimed at increasing knowledge or understanding. This is a broad term that can include various research methods, including experiments, observational studies, surveys, etc."@en ;
+                  rdfs:label "Research Activity"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/PLSMO_C0034
+plsmo:PLSMO_C0034 rdf:type owl:Class ;
+                  chmo:IAO_0000115 "A Descriptor is an attribute or characteristic that provides information about an entity. It can be qualitative, expressing a quality or feature in a non-numerical manner (e.g. color, texture, behavior), or quantitative, expressing a measurable property with a numerical value and unit (e.g. frequency, mass, length)."@en ;
+                  rdfs:label "Descriptor"@en .
+
+
+###  https://qudt.org/schema/qudt/Unit
+<https://qudt.org/schema/qudt/Unit> rdf:type owl:Class ;
+                                    chmo:IAO_0000115 """A unit of measure, or unit, is a particular quantity value that has been chosen as a scale for measuring other quantities the same kind (more generally of equivalent dimension). For example, the meter is a quantity of length that has been rigorously defined and standardized by the BIPM (International Board of Weights and Measures). Any measurement of the length can be expressed as a number multiplied by the unit meter. More formally, the value of a physical quantity Q with respect to a unit (U) is expressed as the scalar multiple of a real number (n) and U, as Q = nU
+."""@en ;
+                                    rdfs:label "Unit" .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://purl.allotrope.org/ontologies/result#AFR_0001089
+AFO:AFR_0001089 rdf:type owl:NamedIndividual ,
+                         QUDT:QuantityKind ;
+                chmo:IAO_0000115 "Retention time is a chromatography peak facet that indicates the elapsed time between the injection of the sample and the maximum detector response attributed to the peak (analyte band). [Allotrope]"@en ;
+                dcterms:references AFO:AFR_0000413 ;
+                rdfs:label "Retention Time"@en .
+
+
+###  http://purl.allotrope.org/ontologies/result#AFR_0001250
+AFO:AFR_0001250 rdf:type owl:NamedIndividual ,
+                         QUDT:QuantityKind ;
+                chmo:IAO_0000115 "A detector sampling rate setting is a detector setting parameter that specifies the rate at which the detector changes its output signal. It is limited by the actual physical/chemical process of detection and the detector electronics. Often the sample rate is set lower than the maximum sampling rate so that adjacent data points can be averaged to provide better signal to noise. [Allotrope]"@en ;
+                rdfs:label "Detector Sampling Rate Setting"@en .
+
+
+###  http://purl.allotrope.org/ontologies/result#AFR_0001881
+AFO:AFR_0001881 rdf:type owl:NamedIndividual ,
+                         QUDT:QuantityKind ;
+                chmo:IAO_0000115 "Flow rate is a quality quantification facet that quantifies the motion of material through a surface per time. [Allotrope]"@en ;
+                rdfs:label "Flow Rate"@en .
+
+
+###  http://purl.allotrope.org/ontologies/result#AFR_0001948
+AFO:AFR_0001948 rdf:type owl:NamedIndividual ,
+                         QUDT:QuantityKind ;
+                chmo:IAO_0000115 "The retention time window width is the full width of a retention time window for a chromatographic peak. [PSI/MS]"@en ;
+                rdfs:label "Retention Time Window Width"@en .
+
+
+###  http://purl.allotrope.org/ontologies/result#AFR_0002030
+AFO:AFR_0002030 rdf:type owl:NamedIndividual ,
+                         QUDT:QuantityKind ;
+                chmo:IAO_0000115 "A column inner diameter (datum) is an inner diameter quantifies the inner diameter of a column. [Allotrope]"@en ;
+                rdfs:label "Column Inner Diameter"@en .
+
+
+###  http://purl.allotrope.org/ontologies/result#AFR_0002768
+AFO:AFR_0002768 rdf:type owl:NamedIndividual ,
+                         QUDT:QuantityKind ;
+                chmo:IAO_0000115 "A column void volume time is the time required for an unretained compound to traverse the column and exit. [Allotrope]"@en ;
+                rdfs:label "Column Void Volume Time"@en .
+
+
+###  http://qudt.org/vocab/quantitykind/Pressure
+<http://qudt.org/vocab/quantitykind/Pressure> rdf:type owl:NamedIndividual ,
+                                                       QUDT:QuantityKind ;
+                                              chmo:IAO_0000115 "Pressure is an effect which occurs when a force is applied on a surface. Pressure is the amount of force acting on a unit area. Pressure is distinct from stress, as the former is the ratio of the component of force normal to a surface to the surface area. Stress is a tensor that relates the vector force to the vector area."@en ;
+                                              rdfs:label "Pressure"@en .
+
+
+###  http://qudt.org/vocab/quantitykind/Time
+<http://qudt.org/vocab/quantitykind/Time> rdf:type owl:NamedIndividual ,
+                                                   QUDT:QuantityKind ;
+                                          chmo:IAO_0000115 "Time is a basic component of the measuring system used to sequence events, to compare the durations of events and the intervals between them, and to quantify the motions of objects."@en ;
+                                          rdfs:label "Time"@en .
+
+
+###  http://qudt.org/vocab/quantitykind/Wavelength
+<http://qudt.org/vocab/quantitykind/Wavelength> rdf:type owl:NamedIndividual ,
+                                                         QUDT:QuantityKind ;
+                                                chmo:IAO_0000115 "For a monochromatic wave, \"wavelength\" is the distance between two successive points in a direction perpendicular to the wavefront where at a given instant the phase differs by 2π. The wavelength of a sinusoidal wave is the spatial period of the wave—the distance over which the wave's shape repeats. The SI unit of wavelength is the meter."@en ;
+                                                rdfs:label "Wavelength"@en .
+
+
+###  http://qudt.org/vocab/unit/BAR
+<http://qudt.org/vocab/unit/BAR> rdf:type owl:NamedIndividual ,
+                                          <https://qudt.org/schema/qudt/Unit> ;
+                                 rdfs:label "Bar"@en .
+
+
+###  http://qudt.org/vocab/unit/DEG_C
+<http://qudt.org/vocab/unit/DEG_C> rdf:type owl:NamedIndividual ,
+                                            <https://qudt.org/schema/qudt/Unit> ;
+                                   rdfs:label "Celsius"@en .
+
+
+###  http://qudt.org/vocab/unit/HZ
+<http://qudt.org/vocab/unit/HZ> rdf:type owl:NamedIndividual ,
+                                         <https://qudt.org/schema/qudt/Unit> ;
+                                rdfs:label "Hertz"@en .
+
+
+###  http://qudt.org/vocab/unit/L
+<http://qudt.org/vocab/unit/L> rdf:type owl:NamedIndividual ,
+                                        <https://qudt.org/schema/qudt/Unit> ;
+                               rdfs:label "Litre"@en .
+
+
+###  http://qudt.org/vocab/unit/M
+<http://qudt.org/vocab/unit/M> rdf:type owl:NamedIndividual ,
+                                        <https://qudt.org/schema/qudt/Unit> ;
+                               rdfs:label "Metre"@en .
+
+
+###  http://qudt.org/vocab/unit/MIN
+<http://qudt.org/vocab/unit/MIN> rdf:type owl:NamedIndividual ,
+                                          <https://qudt.org/schema/qudt/Unit> ;
+                                 rdfs:label "Minute"@en .
+
+
+###  http://qudt.org/vocab/unit/MilliL-PER-MIN
+<http://qudt.org/vocab/unit/MilliL-PER-MIN> rdf:type owl:NamedIndividual ,
+                                                     <https://qudt.org/schema/qudt/Unit> ;
+                                            rdfs:label "Millilitre per minute"@en .
+
+
+###  http://qudt.org/vocab/unit/MilliMOL
+<http://qudt.org/vocab/unit/MilliMOL> rdf:type owl:NamedIndividual ,
+                                               <https://qudt.org/schema/qudt/Unit> ;
+                                      rdfs:label "Millimole"@en .
+
+
+###  http://qudt.org/vocab/unit/NanoM
+<http://qudt.org/vocab/unit/NanoM> rdf:type owl:NamedIndividual ,
+                                            <https://qudt.org/schema/qudt/Unit> ;
+                                   rdfs:label "Nanometre"@en .
+
+
+###  http://qudt.org/vocab/unit/PSI
+<http://qudt.org/vocab/unit/PSI> rdf:type owl:NamedIndividual ,
+                                          <https://qudt.org/schema/qudt/Unit> ;
+                                 rdfs:label "Pounds of force per square inch"@en .
+
+
+###  http://qudt.org/vocab/unit/S-PER-M
+<http://qudt.org/vocab/unit/S-PER-M> rdf:type owl:NamedIndividual ,
+                                              <https://qudt.org/schema/qudt/Unit> ;
+                                     rdfs:label "Siemens per metre"@en .
+
+
+###  http://qudt.org/vocab/unit/SEC
+<http://qudt.org/vocab/unit/SEC> rdf:type owl:NamedIndividual ,
+                                          <https://qudt.org/schema/qudt/Unit> ;
+                                 rdfs:label "Second"@en .
+
+
+###  http://www.ontology-of-units-of-measure.org/resource/om-2/TimeConstant
+<http://www.ontology-of-units-of-measure.org/resource/om-2/TimeConstant> rdf:type owl:NamedIndividual ,
+                                                                                  QUDT:QuantityKind ;
+                                                                         chmo:IAO_0000115 "Time required to approach (1-1/e) of the final output value of a detector (about 63%) (Kitchin, Astrophysical Techniques, IoP, Table 1.1.2)."@en ;
+                                                                         rdfs:label "Time Constant"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_I0001
+ic:IC_I0001 rdf:type owl:NamedIndividual ,
+                     QUDT:QuantityKind ;
+            chmo:IAO_0000115 "A rate quantity of a substance, that indicates its proportional relationship regarding one or more components within a mixture."@en ,
+                             "Material of the solid phase layer in the column."@en ;
+            rdfs:label "Admixture Rate"@en ,
+                       "Packing Material"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_I0002
+ic:IC_I0002 rdf:type owl:NamedIndividual ,
+                     QUDT:QuantityKind ;
+            chmo:IAO_0000115 "Set current of the suppressor, which is applied during electronically suppressed ion chromatography."@en ;
+            rdfs:label "Suppressor Current"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_I0003
+ic:IC_I0003 rdf:type owl:NamedIndividual ,
+                     QUDT:QuantityKind ;
+            chmo:IAO_0000115 "Allowed deviation from the set device temperature. Measurement is paused if exceeded or undercut."@en ;
+            rdfs:label "Temperature Deviation"@en .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi

@@ -399,12 +399,6 @@ QUDT:QuantityValue rdf:type owl:Class ;
                    rdfs:label "Quantity Value"@en .
 
 
-###  https://plasma-mds.org/ontology/IC_Ontology/Autosampler_Temperature_Deviation
-ic:Autosampler_Temperature_Deviation rdf:type owl:Class ;
-                                     rdfs:subClassOf QUDT:Quantity ;
-                                     rdfs:label "Autosampler Temperature Deviation"@en .
-
-
 ###  https://plasma-mds.org/ontology/IC_Ontology/IC_0022
 ic:IC_0022 rdf:type owl:Class ;
            owl:equivalentClass ic:IC_C0002 ,
@@ -417,7 +411,7 @@ ic:IC_0022 rdf:type owl:Class ;
                                                       [ rdf:type owl:Restriction ;
                                                         owl:onProperty plsmo:PLSMO_R0010 ;
                                                         owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                        owl:onClass ic:Autosampler_Temperature_Deviation
+                                                        owl:onClass ic:IC_C0083
                                                       ]
                                                       [ rdf:type owl:Restriction ;
                                                         owl:onProperty plsmo:PLSMO_R0010 ;
@@ -464,7 +458,7 @@ ic:IC_C0002 rdf:type owl:Class ;
                                                        [ rdf:type owl:Restriction ;
                                                          owl:onProperty plsmo:PLSMO_R0010 ;
                                                          owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                         owl:onClass ic:Autosampler_Temperature_Deviation
+                                                         owl:onClass ic:IC_C0083
                                                        ]
                                                        [ rdf:type owl:Restriction ;
                                                          owl:onProperty plsmo:PLSMO_R0010 ;
@@ -1264,7 +1258,7 @@ ic:IC_C0066 rdf:type owl:Class ;
             chmo:IAO_0000115 "The set current to suppress various other ions (which are not covered yet) from the eluent during electronically suppressed ion chromatography. Alternatively, the molarity can be specified, from which the required current can be calculated."@en ;
             dcterms:references <http://purl.allotrope.org/ontologies/role#AFRL_0000220> ,
                                ic:IC_C0030 ;
-            rdfs:label "Other Suppression Currents"@en .
+            rdfs:label "Other Suppression Current"@en .
 
 
 ###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0067
@@ -1322,14 +1316,14 @@ ic:IC_C0073 rdf:type owl:Class ;
 ic:IC_C0074 rdf:type owl:Class ;
             rdfs:subClassOf QUDT:Quantity ;
             chmo:IAO_0000115 "Defines the sampling rate of the used UV/VIS detector, which describes how many data points are collected per second."@en ;
-            rdfs:label "UV/VIS data collection rate"@en .
+            rdfs:label "UV/VIS Data Collection Rate"@en .
 
 
 ###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0075
 ic:IC_C0075 rdf:type owl:Class ;
             rdfs:subClassOf QUDT:Quantity ;
             chmo:IAO_0000115 "Wavelength of each set channel for the UV/VIS detector"@en ;
-            rdfs:label "UV/VIS channel wavelength"@en .
+            rdfs:label "UV/VIS Channel Wavelength"@en .
 
 
 ###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0077
@@ -1373,6 +1367,12 @@ ic:IC_C0082 rdf:type owl:Class ;
             rdfs:subClassOf QUDT:Quantity ;
             chmo:IAO_0000115 "The maximum system pressure limit, if the pressure exceeds this value, the measurement will be interrupted to prevent damage to the system."@en ;
             rdfs:label "Upper Pressure Limit"@en .
+
+
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0083
+ic:IC_C0083 rdf:type owl:Class ;
+            rdfs:subClassOf QUDT:Quantity ;
+            rdfs:label "Autosampler Temperature Deviation"@en .
 
 
 ###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0084

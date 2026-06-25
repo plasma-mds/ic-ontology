@@ -1,4 +1,3 @@
-@prefix : <https://plasma-mds.org/ontology/IC_Ontology#> .
 @prefix ic: <https://plasma-mds.org/ontology/IC_Ontology/> .
 @prefix AFO: <http://purl.allotrope.org/ontologies/result#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -107,12 +106,27 @@ See: https://qudt.org/schema/qudt/hasUnit"""@en ;
              rdfs:label "hasUnit"@en .
 
 
+###  https://plasma-mds.org/ontology/IC_Ontology/IC_R0002
+ic:IC_R0002 rdf:type owl:ObjectProperty ;
+            owl:inverseOf plsmo:IC_R0001 ;
+            rdfs:domain plsmo:PLSMO_C0013 ;
+            rdfs:range plsmo:PLSMO_C0002 ;
+            rdfs:label "configurationUsedBy"@en .
+
+
+###  https://plasma-mds.org/ontology/plasma-o/IC_R0001
+plsmo:IC_R0001 rdf:type owl:ObjectProperty ;
+               rdfs:domain plsmo:PLSMO_C0013 ;
+               rdfs:range plsmo:PLSMO_C0002 ;
+               chmo:IAO_0000115 "[Method] uses [Configuration]"@en ;
+               rdfs:label "usesConfiguration"@en .
+
+
 ###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0007
 plsmo:PLSMO_R0007 rdf:type owl:ObjectProperty ;
                   owl:inverseOf plsmo:PLSMO_R0042 ;
                   rdfs:domain plsmo:PLSMO_C0002 ;
-                  rdfs:range chmo:CHMO_0001209 ,
-                             chmo:CHMO_0001210 ;
+                  rdfs:range plsmo:PLSMO_C0003 ;
                   rdfs:label "configurationOf"@en .
 
 
@@ -125,9 +139,7 @@ plsmo:PLSMO_R0010 rdf:type owl:ObjectProperty ;
 
 ###  https://plasma-mds.org/ontology/plasma-o/PLSMO_R0042
 plsmo:PLSMO_R0042 rdf:type owl:ObjectProperty ;
-                  rdfs:domain chmo:CHMO_0001209 ,
-                              chmo:CHMO_0001210 ,
-                              plsmo:PLSMO_C0003 ;
+                  rdfs:domain plsmo:PLSMO_C0003 ;
                   rdfs:range plsmo:PLSMO_C0002 ;
                   chmo:IAO_0000115 "[Device] has [Configuration]"@en ;
                   rdfs:label "hasConfiguration"@en .
@@ -318,11 +330,11 @@ chmo:CHMO_0001128 rdf:type owl:Class ;
 chmo:CHMO_0001209 rdf:type owl:Class ;
                   owl:equivalentClass [ owl:intersectionOf ( chmo:CHMO_0001014
                                                              [ rdf:type owl:Restriction ;
-                                                               owl:onProperty plsmo:PLSMO_R0042 ;
+                                                               owl:onProperty plsmo:IC_R0001 ;
                                                                owl:someValuesFrom ic:IC_C0013
                                                              ]
                                                              [ rdf:type owl:Restriction ;
-                                                               owl:onProperty plsmo:PLSMO_R0042 ;
+                                                               owl:onProperty plsmo:IC_R0001 ;
                                                                owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                                                owl:onClass ic:IC_C0001
                                                              ]
@@ -338,11 +350,11 @@ chmo:CHMO_0001209 rdf:type owl:Class ;
 chmo:CHMO_0001210 rdf:type owl:Class ;
                   owl:equivalentClass [ owl:intersectionOf ( chmo:CHMO_0001014
                                                              [ rdf:type owl:Restriction ;
-                                                               owl:onProperty plsmo:PLSMO_R0042 ;
+                                                               owl:onProperty plsmo:IC_R0001 ;
                                                                owl:someValuesFrom ic:IC_C0013
                                                              ]
                                                              [ rdf:type owl:Restriction ;
-                                                               owl:onProperty plsmo:PLSMO_R0042 ;
+                                                               owl:onProperty plsmo:IC_R0001 ;
                                                                owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                                                owl:onClass ic:IC_C0001
                                                              ]
@@ -1258,7 +1270,7 @@ ic:IC_C0066 rdf:type owl:Class ;
             chmo:IAO_0000115 "The set current to suppress various other ions (which are not covered yet) from the eluent during electronically suppressed ion chromatography. Alternatively, the molarity can be specified, from which the required current can be calculated."@en ;
             dcterms:references <http://purl.allotrope.org/ontologies/role#AFRL_0000220> ,
                                ic:IC_C0030 ;
-            rdfs:label "Other Suppression Current"@en .
+            rdfs:label "Other Suppression Currents"@en .
 
 
 ###  https://plasma-mds.org/ontology/IC_Ontology/IC_C0067

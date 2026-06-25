@@ -109,8 +109,8 @@ See: https://qudt.org/schema/qudt/hasUnit"""@en ;
 ###  https://plasma-mds.org/ontology/IC_Ontology/IC_R0002
 ic:IC_R0002 rdf:type owl:ObjectProperty ;
             owl:inverseOf plsmo:IC_R0001 ;
-            rdfs:domain plsmo:PLSMO_C0013 ;
-            rdfs:range plsmo:PLSMO_C0002 ;
+            rdfs:domain plsmo:PLSMO_C0002 ;
+            rdfs:range plsmo:PLSMO_C0013 ;
             rdfs:label "configurationUsedBy"@en .
 
 

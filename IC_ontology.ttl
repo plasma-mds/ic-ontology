@@ -17,7 +17,7 @@
                                                owl:versionIRI <https://plasma-mds.org/ontology/IC_Ontology/0.5.0> ;
                                                dcterms:citation "" ;
                                                dcterms:created "2024-08-13" ;
-                                               dcterms:creator "Ihda Chaeronny Siffa" ,
+                                               dcterms:creator "Ihda Chaerony Siffa" ,
                                                                "Robert Wagner" ,
                                                                "https://orcid.org/0000-0002-2762-293X" ,
                                                                "https://orcid.org/0000-0002-4232-4543" ;
